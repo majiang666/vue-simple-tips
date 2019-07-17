@@ -1,6 +1,6 @@
 {
   "name": "vue-simple-tips",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description":"vue简化版提示组件",
   "main": "lib/tips.umd.min.js",
   "keywords": ["vue","vue-tips","prompt"],

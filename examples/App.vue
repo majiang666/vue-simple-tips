@@ -4,9 +4,8 @@
     :showFlag="showFlag" 
     :location="location" 
     :distance="distance" 
-    :tipsMsg="tipsMsg" 
-    :times="times"  />
-    <img alt="Vue logo" src="./assets/logo.png">
+    :tipsMsg="tipsMsg" />
+    <img alt="Vue logo" src="./assets/logo.png" @click="showTips">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
@@ -18,16 +17,23 @@ export default {
   name: 'app',
   data(){
     return{
-      showFlag:true,
+      showFlag:false,
       location:"bottom",
       distance:"100px",
-      tipsMsg:'系统错误，请重试',
-      times:5000
+      tipsMsg:'系统错误，请重试'
     }
   },
   components: {
     HelloWorld
-  }
+  },
+  methods: {
+    showTips(){
+      this.showFlag = true;
+      setTimeout(() => {
+        this.showFlag = false;
+      },2000)
+    }
+  },
 }
 </script>
 

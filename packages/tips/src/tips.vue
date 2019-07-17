@@ -1,5 +1,5 @@
 <template>
-    <div class="tips" v-if="showFlag" :style="getLocation">
+    <div class="tips fadeInUp" v-if="showFlag" :style="getLocation">
         <span class="tips-box">{{ this.tipsMsg ? this.tipsMsg : '提示' }}</span>
     </div>
 </template>
@@ -7,14 +7,7 @@
 <script>
 export default {
     name:"Tips",
-    props:['showFlag','location','distance','tipsMsg','times'],
-    mounted() {
-        if(this.showFlag){
-            setTimeout(() => {
-                document.querySelector('.tips').remove();
-            }, this.times && (typeof this.times === 'number')  ? this.times : 2000);
-        }
-    },
+    props:['showFlag','location','distance','tipsMsg'],
     computed: {
         getLocation:function(){
             let locations = {};
@@ -55,4 +48,24 @@ export default {
         display: inline-block;
         margin: 0 15px;
     } 
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            -webkit-transform: translate3d(0, 100%, 0);
+            transform: translate3d(0, 100%, 0);
+        }
+        to {
+            opacity: 1;
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
+    }
+    .fadeInUp {
+        -webkit-animation-name: fadeInUp;
+        animation-name: fadeInUp;
+        -webkit-animation-duration: 0.5s;
+        animation-duration: 0.5s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }
 </style>

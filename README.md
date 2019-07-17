@@ -20,7 +20,17 @@ Vue.use(Tips);
 ```
 3:使用
 ```
-<Tips />
+<Tips />  
+
+// 提示框消失
+methods: {
+    funs(){
+        this.showFlag = true;
+        setTimeout(() => {
+            this.showFlag = false;
+        },2000)
+    }
+}
 ```
 
 ## API
@@ -29,8 +39,7 @@ Vue.use(Tips);
     :showFlag="showFlag" 
     :location="location" 
     :distance="distance" 
-    :tipsMsg="tipsMsg" 
-    :times="times"  />
+    :tipsMsg="tipsMsg" />
 ```
 **showFlag**
 
@@ -48,6 +57,13 @@ Vue.use(Tips);
 
 提示内容 提示(默认) [String]
 
-**times**
+**times**（已废除）
 
 消失时间 2000(默认,毫秒) [Number]
+
+## 更新记录  
+
+===== 2019-07-17 ======  
+1：紧急废除times配置项，时间配置留给用户自己配置  
+2：新增提示框消失动画
+
